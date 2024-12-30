@@ -295,6 +295,7 @@ def main(sourceFolder, docsDir: str, ghToken: str, priorityOnlyMode: bool) -> No
 				print("GitHub")
 				api = requests.get(f"https://api.github.com/repos/{app['github']}", headers=header if header else None).json()
 				releases = requests.get(f"https://api.github.com/repos/{app['github']}/releases", headers=header if header else None).json()
+				assert "message" not in releases, releases["message"]
 				release = None
 				prerelease = None
 				if len(releases) > 0 and releases[0]["prerelease"]:
