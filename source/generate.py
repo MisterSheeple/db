@@ -188,6 +188,7 @@ def main(sourceFolder, docsDir: str, ghToken: str, priorityOnlyMode: bool) -> No
 
 	# Fetch info for GitHub apps and output
 	for i, app in enumerate(source):
+		doUpdate = True
 		# Only update alternating halves of the list to save API hits
 		# doUpdate = ((i % 2) == int((datetime.now().hour % 12) > 5))
 
